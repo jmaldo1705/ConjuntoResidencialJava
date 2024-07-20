@@ -1,5 +1,7 @@
 package com.conjuntoresidencialjava.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +16,9 @@ import lombok.Setter;
 @Entity
 @Table(name = "tipos_documento")
 public class TiposDocumento {
+
+    public TiposDocumento() {}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -22,4 +27,11 @@ public class TiposDocumento {
     @Column(name = "nombre", length = 50)
     private String nombre;
 
+    @Column(name = "nombre_corto", length = 10)
+    private String nombreCorto;
+
+    @JsonCreator
+    public TiposDocumento(@JsonProperty("id") Integer id) {
+        this.id = id;
+    }
 }

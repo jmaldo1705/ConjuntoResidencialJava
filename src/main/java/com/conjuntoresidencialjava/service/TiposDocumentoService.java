@@ -1,4 +1,4 @@
-package com.conjuntoresidencialjava.util.service;
+package com.conjuntoresidencialjava.service;
 
 import com.conjuntoresidencialjava.entity.TiposDocumento;
 import com.conjuntoresidencialjava.repository.TiposDocumentoRepository;

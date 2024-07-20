@@ -2,15 +2,12 @@ package com.conjuntoresidencialjava.dto;
 
 import lombok.Value;
 
-import java.io.Serializable;
-
 
 @Value
-public class UsuarioDto implements Serializable {
+public class UsuarioDTO {
     Integer id;
-    TiposDocumentoDto idTipoDocumento;
+    TiposDocumentoDTO idTipoDocumento;
     String nombre;
-    String password;
     String noDocumento;
     String correo;
     Boolean estado;

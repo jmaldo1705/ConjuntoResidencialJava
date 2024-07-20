@@ -22,7 +22,7 @@ public class Usuario {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tipo_documento")
     private TiposDocumento idTipoDocumento;
 

@@ -1,7 +1,8 @@
 package com.conjuntoresidencialjava.controller;
 
+import com.conjuntoresidencialjava.dto.UsuarioDTO;
 import com.conjuntoresidencialjava.entity.Usuario;
-import com.conjuntoresidencialjava.util.service.UsuarioService;
+import com.conjuntoresidencialjava.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,7 +23,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> getAllUsuarios() {
+    public ResponseEntity<List<UsuarioDTO>> getAllUsuarios() {
         return ResponseEntity.ok(usuarioService.findAll());
     }
 

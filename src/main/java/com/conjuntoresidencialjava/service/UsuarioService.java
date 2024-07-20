@@ -1,6 +1,8 @@
-package com.conjuntoresidencialjava.util.service;
+package com.conjuntoresidencialjava.service;
 
+import com.conjuntoresidencialjava.dto.UsuarioDTO;
 import com.conjuntoresidencialjava.entity.Usuario;
+import com.conjuntoresidencialjava.mapper.UsuarioMapper;
 import com.conjuntoresidencialjava.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +13,16 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    private UsuarioMapper usuarioMapper;
+
+    public UsuarioService(UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper) {
         this.usuarioRepository = usuarioRepository;
+        this.usuarioMapper = usuarioMapper;
     }
 
-    public List<Usuario> findAll() {
-        return usuarioRepository.findAll();
+    public List<UsuarioDTO> findAll() {
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return usuarioMapper.toUsuarioDTOs(usuarios);
     }
 
     public Usuario findById(Integer id) {
@@ -24,6 +30,7 @@ public class UsuarioService {
     }
 
     public Usuario save(Usuario usuario) {
+        usuario.setEstado(true);
         return usuarioRepository.save(usuario);
     }
 

@@ -1,7 +1,7 @@
 package com.conjuntoresidencialjava.controller;
 
 import com.conjuntoresidencialjava.entity.TiposDocumento;
-import com.conjuntoresidencialjava.util.service.TiposDocumentoService;
+import com.conjuntoresidencialjava.service.TiposDocumentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
